@@ -11,7 +11,6 @@ import { Code2, User, Camera, MapPin, Briefcase, GraduationCap, Award, Plus, X, 
 import { toast } from "sonner"
 import axiosInstance from "@/api/axios"
 import { useNavigate } from "react-router-dom"
-import { NavbarAvatar } from "@/components/navbar-avatar/NavbarAvatar"
 import type { Certification, Education, Experience } from "./edit-profile.types"
 import { FloatingProfileCoach } from "@/components/floating-profile-coach/FloatingProfileCoach"
 import { Layout } from "@/components/layout/Layout"
@@ -58,12 +57,6 @@ export default function EditProfile() {
             issueDate: "",
         },
     ])
-
-    const [currentUser, setCurrentUser] = useState({
-        name: "",
-        email: "",
-        avatar: ""
-    })
 
     const navigate = useNavigate();
 
@@ -158,11 +151,6 @@ export default function EditProfile() {
     }
 
     useEffect(() => {
-        setCurrentUser({
-            name: localStorage.getItem('userName') || "",
-            email: localStorage.getItem('userEmail') || "",
-            avatar: localStorage.getItem('userAvatar') || ""
-        })
         fetchProfileDetails();
     }, [])
 

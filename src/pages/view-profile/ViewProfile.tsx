@@ -1,15 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Code2, MapPin, Briefcase, GraduationCap, Award, Mail, Calendar, Building, Target, ChevronRight, Send, ThumbsUp, Copy, Lightbulb, Edit, TrendingUp, Link2 } from "lucide-react";
+import { Code2, MapPin, Briefcase, GraduationCap, Award, Mail, Calendar, Building, Link2 } from "lucide-react";
 import profileIcon from '../../assets/complete-profile-illustration.svg';
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import axiosInstance from "@/api/axios";
 import { toast } from "sonner";
-import { NavbarAvatar } from "@/components/navbar-avatar/NavbarAvatar";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@radix-ui/react-progress";
-import { Textarea } from "@/components/ui/textarea";
 import { FloatingProfileCoach } from "@/components/floating-profile-coach/FloatingProfileCoach";
 import { Layout } from "@/components/layout/Layout"
 
@@ -55,16 +52,6 @@ export default function ViewProfile() {
         ],
     })
 
-    const [currentUser, setCurrentUser] = useState({
-        name: "",
-        email: "",
-        avatar: ""
-    })
-
-    const [coachExpanded, setCoachExpanded] = useState(false)
-    const [coachMessages, setCoachMessages] = useState<any[]>([])
-    const [coachInput, setCoachInput] = useState("")
-    const [coachLoading, setCoachLoading] = useState(false)
     const messagesEndRef = useRef<HTMLDivElement>(null)
 
     const navigate = useNavigate();
@@ -73,7 +60,6 @@ export default function ViewProfile() {
         try {
             const response = await axiosInstance.get('/api/v1/users/profile-details');
             const data = response?.data?.data;
-            console.log(data);
             setProfileData((prevData) => ({
                 ...prevData,
                 name: data?.name || "",
@@ -97,11 +83,6 @@ export default function ViewProfile() {
     }
 
     useEffect(() => {
-        setCurrentUser({
-            name: localStorage.getItem('userName') || "",
-            email: localStorage.getItem('userEmail') || "",
-            avatar: localStorage.getItem('userAvatar') || ""
-        })
         fetchProfileDetails();
     }, [])
 
@@ -132,39 +113,9 @@ export default function ViewProfile() {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
     }
 
-    const sendCoachMessage = async (promptType?: string, customPrompt?: string) => {
-        const finalPrompt = customPrompt || coachInput;
-        if (!finalPrompt.trim()) return
-
-        try {
-            setCoachLoading(true);
-            const response = await axiosInstance.post("/api/v1/ai/profile-improvement", {
-                promptType: promptType || "custom",
-                customPrompt: finalPrompt
-            });
-
-            const aiReply = response.data?.data?.reply;
-            setCoachMessages((prev) => [
-                ...prev,
-                { role: "user", content: finalPrompt },
-                { role: "assistant", content: aiReply }
-            ]);
-
-            setCoachInput("");
-        } catch (err) {
-            console.error("AI Coach error:", err);
-            toast.error("Something went wrong while fetching AI response");
-        } finally {
-            setCoachInput("");
-            setCoachLoading(false);
-        }
-    }
-
     useEffect(() => {
-        if (coachExpanded) {
-            scrollToBottom()
-        }
-    }, [coachMessages, coachExpanded])
+        scrollToBottom()
+    }, [])
 
     return (
         <Layout>

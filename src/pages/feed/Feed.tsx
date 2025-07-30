@@ -15,7 +15,6 @@ import { getTimeAgo } from "@/utils/getTimeAgo"
 import { FloatingChatButton } from "@/components/floating-chat-btn/FloatingChatButton"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Layout } from "@/components/layout/Layout"
-import { useAppSelector } from "@/store/hooks"
 
 export default function Feed() {
     const [newPostContent, setNewPostContent] = useState("");
@@ -37,8 +36,6 @@ export default function Feed() {
     const [aiSuggestionsError, setAiSuggestionsError] = useState(false);
     const [showAllSuggestions, setShowAllSuggestions] = useState(false);
     const navigate = useNavigate();
-
-    const { onlineUsers } = useAppSelector((state) => state.auth);
 
     useEffect(() => {
         setCurrentUser({

@@ -2,12 +2,11 @@
 import { useEffect, useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Search, Code2, UserPlus, MapPin, Briefcase, MessageSquare } from "lucide-react"
+import { Search, UserPlus, MapPin, Briefcase, MessageSquare } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { NavbarAvatar } from "@/components/navbar-avatar/NavbarAvatar"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import type { UserProfile } from "./allusers.types"
 import axiosInstance from "@/api/axios"
 import { Layout } from "@/components/layout/Layout"
@@ -15,23 +14,11 @@ import { chatApi } from "@/api/chatApi"
 
 export default function AllUsers() {
     const [searchTerm, setSearchTerm] = useState("");
-    const [currentUser, setCurrentUser] = useState({
-        id: "",
-        name: "",
-        email: "",
-        avatar: ""
-    })
     const [users, setUsers] = useState<UserProfile[]>([])
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        setCurrentUser({
-            id: localStorage.getItem('userId') || "",
-            name: localStorage.getItem('userName') || "",
-            email: localStorage.getItem('userEmail') || "",
-            avatar: localStorage.getItem('userAvatar') || ""
-        })
         fetchAllUsers();
     }, [])
 
@@ -75,7 +62,7 @@ export default function AllUsers() {
 
     const handleMessageUser = async (userId: string) => {
         try {
-            const response = await chatApi.getOrCreateChat(userId);
+            await chatApi.getOrCreateChat(userId);
             navigate(`/chat?userId=${userId}`);
         } catch (error) {
             console.error("Error creating/getting chat:", error);

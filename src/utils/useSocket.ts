@@ -1,5 +1,5 @@
 // hooks/useSocket.ts
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { io, Socket } from "socket.io-client";
 import { useDispatch } from "react-redux";
 import { setOnlineUsers } from "@/slices/authSlice";

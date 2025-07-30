@@ -7,12 +7,10 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Code2, Users, Zap, Eye, EyeOff, CheckCircle, Mail } from "lucide-react"
-// import axiosInstance from "@/api/axios"
-// import { setAuthToken } from "@/utils/tokenUtils"
 import { toast } from "sonner"
 import { useNavigate } from "react-router-dom"
 import ForgotPasswordModal from "@/components/forgot-password-modal/ForgotPasswordModal"
-import { useAppDispatch, useAppSelector } from "@/store/hooks"
+import { useAppDispatch } from "@/store/hooks"
 import { initializeSocket, loginUser, registerUser } from "@/slices/authSlice"
 
 export default function AuthPage() {
@@ -35,20 +33,6 @@ export default function AuthPage() {
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault()
         try {
-            // const response = await axiosInstance.post('/api/v1/users/login', loginForm);
-            // if (response?.data?.success) {
-            //     setAuthToken(response?.data?.data?.accessToken)
-            //     toast.success(response?.data?.message);
-            //     localStorage.setItem('userName', response?.data?.data?.user?.name);
-            //     localStorage.setItem('userEmail', response?.data?.data?.user?.email);
-            //     localStorage.setItem('userAvatar', response?.data?.data?.profile?.avatar?.url);
-            //     localStorage.setItem('userId', response?.data?.data?.user?._id);
-            //     response?.data?.data?.user?.completenessScore < 100 ? navigate('/profile-completion', {
-            //         state: {
-            //             completenessScore: response?.data?.data?.user?.completenessScore
-            //         }
-            //     }) : navigate('/feed');
-            // }
             const resultAction = await dispatch(loginUser(loginForm));
             if (loginUser.fulfilled.match(resultAction)) {
                 const userId = resultAction.payload.user._id;
@@ -66,28 +50,7 @@ export default function AuthPage() {
 
     const handleSignup = async (e: React.FormEvent) => {
         e.preventDefault()
-        // try {
-        //     const response = await axiosInstance.post('/api/v1/users/register', {
-        //         email: signupForm.email,
-        //         name: signupForm.name,
-        //         password: signupForm.password
-        //     })
-
-        //     if (response?.data?.success) {
-        //         setAuthToken(response?.data?.data?.accessToken)
-        //         localStorage.setItem('userName', response?.data?.data?.user?.name);
-        //         localStorage.setItem('userEmail', response?.data?.data?.user?.email);
-        //         localStorage.setItem('userId', response?.data?.data?.user?._id);
-        //         toast.success(response?.data?.message)
-        //         navigate('/profile-completion', {
-        //             state: {
-        //                 completenessScore: response?.data?.data?.user?.completenessScore
-        //             }
-        //         })
-        //     }
-
         const { name, email, password } = signupForm;
-
         try {
             const resultAction = await dispatch(registerUser({ name, email, password }));
             if (registerUser.fulfilled.match(resultAction)) {

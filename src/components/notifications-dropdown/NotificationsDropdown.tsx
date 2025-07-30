@@ -1,5 +1,5 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Badge, Bell } from "lucide-react"
+import { Bell } from "lucide-react"
 
 export default function NotificationsDropdown() {
     const notifications = [

@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Code2, MapPin, Briefcase, GraduationCap, Award, Edit, Mail, Calendar, Building, Users, MessageSquare, Heart, Plus, Trash2, Save, X, FileText, BookOpen, Target, UserX, FileX, ChevronUp, ChevronDown, Camera } from "lucide-react"
+import { Code2, MapPin, Briefcase, GraduationCap, Award, Edit, Mail, Calendar, Building, Users, MessageSquare, Heart, Plus, Trash2, Save, X, FileText, BookOpen, Target, UserX, FileX, ChevronUp, ChevronDown } from "lucide-react"
 import { useNavigate, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { NavbarAvatar } from "@/components/navbar-avatar/NavbarAvatar"
