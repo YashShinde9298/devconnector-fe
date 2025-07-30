@@ -1,0 +1,9 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect x="100" y="80" width="200" height="140" rx="8" fill="#374151" opacity="0.3"/>
+  <rect x="120" y="100" width="160" height="8" rx="4" fill="#6B7280"/>
+  <rect x="120" y="120" width="120" height="6" rx="3" fill="#6B7280"/>
+  <rect x="120" y="140" width="140" height="6" rx="3" fill="#6B7280"/>
+  <circle cx="200" cy="180" r="20" fill="#6B7280"/>
+  <path d="M190 180 L200 190 L210 170" stroke="#9CA3AF" stroke-width="2" fill="none"/>
+  <text x="200" y="250" text-anchor="middle" fill="#9CA3AF" font-size="16">No Posts Yet</text>
+</svg>

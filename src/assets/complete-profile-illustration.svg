@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="200" cy="200" r="180" fill="url(#grad1)" opacity="0.1"/>
+  
+  <!-- Main Profile Card -->
+  <rect x="120" y="100" width="160" height="200" rx="20" fill="#334155" stroke="#475569" stroke-width="2"/>
+  
+  <!-- Profile Avatar -->
+  <circle cx="200" cy="140" r="25" fill="url(#grad2)"/>
+  
+  <!-- Avatar Face -->
+  <path d="M185 135 Q200 125 215 135 Q210 145 200 150 Q190 145 185 135" fill="white"/>
+  <circle cx="195" cy="138" r="2" fill="#334155"/>
+  <circle cx="205" cy="138" r="2" fill="#334155"/>
+  <path d="M195 145 Q200 148 205 145" stroke="#334155" stroke-width="1" fill="none"/>
+  
+  <!-- Profile Info Lines -->
+  <rect x="140" y="180" width="80" height="4" rx="2" fill="#64748B"/>
+  <rect x="140" y="190" width="60" height="4" rx="2" fill="#475569"/>
+  <rect x="140" y="200" width="100" height="4" rx="2" fill="#475569"/>
+  
+  <!-- Skills Icons -->
+  <rect x="140" y="220" width="20" height="20" rx="4" fill="url(#grad2)"/>
+  <text x="150" y="233" text-anchor="middle" fill="white" font-size="10" font-family="monospace">{}</text>
+  
+  <rect x="170" y="220" width="20" height="20" rx="4" fill="#F59E0B"/>
+  <text x="180" y="233" text-anchor="middle" fill="white" font-size="8" font-family="monospace">JS</text>
+  
+  <rect x="200" y="220" width="20" height="20" rx="4" fill="url(#grad3)"/>
+  <text x="210" y="233" text-anchor="middle" fill="white" font-size="10" font-family="monospace">⚛</text>
+  
+  <!-- Progress Indicators -->
+  <rect x="140" y="260" width="100" height="8" rx="4" fill="#475569"/>
+  <rect x="140" y="260" width="75" height="8" rx="4" fill="url(#grad2)"/>
+  <text x="245" y="267" fill="#94A3B8" font-size="10">75%</text>
+  
+  <!-- Floating Upload Icon -->
+  <circle cx="320" cy="120" r="15" fill="url(#grad1)" opacity="0.6"/>
+  <path d="M315 115 L320 120 L325 115 M320 115 L320 125" stroke="white" stroke-width="2" fill="none"/>
+  
+  <!-- Floating Checkmark -->
+  <circle cx="80" cy="280" r="12" fill="#10B981" opacity="0.6"/>
+  <path d="M75 280 L78 283 L85 276" stroke="white" stroke-width="2" fill="none"/>
+  
+  <!-- Floating Document Icon -->
+  <rect x="300" y="250" width="25" height="25" rx="5" fill="#F59E0B" opacity="0.6"/>
+  <path d="M307 257 L318 257 M307 263 L318 263 M307 269 L315 269" stroke="white" stroke-width="1.5"/>
+  
+  <!-- Code Brackets -->
+  <path d="M60 180 Q50 180 50 190 L50 210 Q50 220 60 220" stroke="url(#grad2)" stroke-width="3" fill="none" opacity="0.4"/>
+  <path d="M340 180 Q350 180 350 190 L350 210 Q350 220 340 220" stroke="url(#grad2)" stroke-width="3" fill="none" opacity="0.4"/>
+  
+  <!-- Additional Tech Elements -->
+  <circle cx="70" cy="120" r="8" fill="#F59E0B" opacity="0.5"/>
+  <text x="70" y="125" text-anchor="middle" fill="white" font-size="8" font-family="monospace">$</text>
+  
+  <rect x="320" y="280" width="15" height="15" rx="3" fill="url(#grad3)" opacity="0.5"/>
+  <path d="M325 285 L330 290 M330 285 L325 290" stroke="white" stroke-width="1.5"/>
+  
+  <!-- Network Connection Lines -->
+  <path d="M280 140 Q300 130 320 120" stroke="url(#grad2)" stroke-width="2" fill="none" opacity="0.3" stroke-dasharray="5,5"/>
+  <path d="M120 280 Q100 270 80 280" stroke="#10B981" stroke-width="2" fill="none" opacity="0.3" stroke-dasharray="5,5"/>
+</svg>
